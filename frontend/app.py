@@ -7,7 +7,7 @@ from datetime import date
 
 # ================= CONFIG =================
 #BASE_URL = "http://127.0.0.1:8000"  # 🔥 change after deployment
-BASE_URL = "https://your-backend-url.onrender.com"
+BASE_URL = "https://expense-backend-61vh.onrender.com"
 
 
 #BASE_URL = "https://your-backend.onrender.com"  # 👈 replace after deploy
