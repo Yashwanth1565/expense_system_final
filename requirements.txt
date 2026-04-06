@@ -1,0 +1,11 @@
+streamlit
+requests
+pandas
+plotly
+openpyxl
+reportlab
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+python-dotenv
