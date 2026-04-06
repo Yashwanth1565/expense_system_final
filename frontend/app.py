@@ -77,21 +77,23 @@ def safe_get(url):
         return None
 
 # ================= DASHBOARD =================
-data = safe_get(f"{BASE_URL}/expenses/")
+# ================= DASHBOARD =================
+if menu == "📊 Dashboard":
+    data = safe_get(f"{BASE_URL}/expenses/")
 
-if data:
-    df = pd.DataFrame(data)
+    if data:
+        df = pd.DataFrame(data)
 
-    total = df["amount"].sum()
-    approved = df[df["status"] == "Approved"]["amount"].sum()
-    rejected = df[df["status"] == "Rejected"]["amount"].sum()
-    pending = df[df["status"] == "Pending"]["amount"].sum()
+        total = df["amount"].sum()
+        approved = df[df["status"] == "Approved"]["amount"].sum()
+        rejected = df[df["status"] == "Rejected"]["amount"].sum()
+        pending = df[df["status"] == "Pending"]["amount"].sum()
 
-    c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Total", total)
-    c2.metric("Approved", approved)
-    c3.metric("Rejected", rejected)
-    c4.metric("Pending", pending)
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("Total", total)
+        c2.metric("Approved", approved)
+        c3.metric("Rejected", rejected)
+        c4.metric("Pending", pending)
 # ================= ADD =================
 elif menu == " Add Expense":
     st.subheader("Add New Expense")
