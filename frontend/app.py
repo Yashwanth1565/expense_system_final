@@ -105,18 +105,17 @@ elif menu == " Add Expense":
 
     if st.button("Submit"):
         try:
-            res = requests.post(f"{BASE_URL}/expenses/", json={
+            payload = {
                 "employee_name": name,
-                "amount": amt,
+                "amount": float(amt),
                 "category": cat,
                 "description": desc
-            })
+            }
 
-            if res.status_code == 200:
-                st.success("✅ Expense Added")
-            else:
-                st.error("Failed to add")
-                st.write(res.text)
+            res = requests.post(f"{BASE_URL}/expenses/", json=payload)
+
+            st.write("Status Code:", res.status_code)
+            st.write("Response:", res.text)
 
         except Exception as e:
             st.error("Backend not reachable")

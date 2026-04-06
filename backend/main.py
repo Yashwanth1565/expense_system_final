@@ -3,6 +3,15 @@ from sqlalchemy.orm import Session
 
 from backend import models, crud, schemas
 from backend.database import engine, SessionLocal
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 models.Base.metadata.create_all(bind=engine)
 
